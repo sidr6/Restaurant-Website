@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant</title>
+    <style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    header{
+        /* border: 3px solid rgb(34, 255, 0); */
+        background-color: rgb(255, 255, 255);
+        height: 80px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        margin-top: 10px;
+        z-index: 2;
+    }
+    #logo{
+        /* border: 2px solid yellowgreen; */
+        height: 70px;
+        width: auto;
+        margin-left: 40px;
+    }
+    header>span{
+        /* border: 3px solid blue; */
+        width: 500px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-left: auto;
+    }
+    header>div{
+        border: 1px solid #ff5600;
+        border-radius: 5px;
+        height: 55px;
+        width: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* margin-left: auto; */
+        margin-right: 80px;
+        margin-left: 50px;
+    }
+    header>div:hover{
+        background-color: #ff5600;
+    }
+    header>div:hover a{
+        color: white;
+    }
+    header>span>a:hover{
+        /* color: #ff5600; */
+        background-blend-mode: darken;
+        /* box-shadow: 0px 0px 10px  #ff5600; */
+    }
+    /* @keyframes order_btn {
+    form{
+
+        background-color: white;
+    }
+    to{
+        background-color: #ff5600;
+    }
+    } */
+
+    #home_div{
+        /* border: #ff5600 2px solid; */
+        height: 850px;
+        position: relative;
+    }
+    #home_div>img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        /* object-position: right; */
+        position: absolute;
+        z-index: 1;
+    }
+    a{
+        font-size: large;
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+    }
+    .btns{
+        border: 0;
+        padding: 5px 10px;
+        background-color: #ff5600;
+    }
+    #chef{
+        /* border: 3px solid blueviolet; */
+        height: 750px;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        /* justify-items: center; */
+        align-items: center;
+    }
+    #chef>img{
+        grid-column: 2;
+        /* border: 2px solid rgb(43, 226, 73); */
+        width: 500px;
+        height: auto;
+        margin-left: 30px;
+       
+    }
+    #chef_details{
+        grid-column: 1;
+        /* border: 2px solid orange; */
+        width: 550px;
+        height: auto;
+        justify-self: end;
+        margin-right: 30px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(7, 1fr);
+        row-gap: 10px;
+    }
+    #moto{
+        grid-column: 1/3;
+        font-size: large;
+        color: #ff5600;
+    }
+    h3{
+        grid-column:1/3 ;
+        grid-row:2/4;
+        font-size: 35px;
+        word-spacing: 8px;
+    }
+    .description{
+        /* border: 2px solid black; */
+        grid-column: 1/3;
+        grid-row: 4/6;
+        font-size: large;
+        display: flex;
+        align-self: center;
+    }
+    .chef_qualities{
+        /* border: 1px solid red; */
+        height: 50px;
+        width: 250px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        
+    }
+    .chef_icon{
+        /* border: 1px solid ; */
+        width: 50px;
+        height: 100%;
+        border-radius: 10px;
+    }
+
+    #div_menu{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 350px;
+        row-gap: 50px;
+        background-image: url("https://preview.colorlib.com/theme/allfood/assets/img/gallery/section_bg01.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    #menu_buttons{
+        display: flex;
+        column-gap: 80px;
+        font-size: larger;
+    }
+    .menu_button{
+        padding: 5px 25px;
+        background-color: #ff5600;
+        color: white;
+        box-shadow: 5px 5px 10px #ff5600;
+    }
+    #dishes{
+        /* border: 3px solid orangered; */
+        height: 600px;
+        display: grid;
+        grid-template-columns:2.5fr 2fr 1.5fr;
+        grid-template-rows:repeat(2, 1fr)
+    }
+    .dish{
+        height: 100%;
+        width: 100%;
+        
+    }
+    #dish1{
+        grid-row: 1/3;
+        grid-column: 1;
+    }
+    #dish2{
+        grid-row: 1/3;
+        grid-column: 2;
+    }
+    #dish3{
+        grid-row: 1/2;
+        grid-column: 3;
+    }
+    #dish4{
+        grid-row: 2/3;
+        grid-column: 3;
+    }
+
+    #restaurant{
+        /* border: 3px solid blueviolet; */
+        height: 900px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 80px;
+    }
+    #restaurant>img{
+        grid-column: 1;
+        /* border: 2px solid rgb(43, 226, 73); */
+        width: 500px;
+        height: 650px;
+        border-radius: 5px;
+    }
+    #restaurant_details{
+        grid-column: 2;
+        /* border: 4px solid orange; */
+        width: 550px;
+        height: 650px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        row-gap: 40px;
+    }
+    #table_booking{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        row-gap: 10px;
+        height: 500px;
+        background-image: url(https://preview.colorlib.com/theme/allfood/assets/img/gallery/section_bg04.png);
+    }
+    #table_booking>div{
+        /* border: 3px solid orange; */
+        border-radius: 15px;
+        background-color: white;
+        width: 1050px;
+        height: 190px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 50px;
+    }
+    .table_booking_details{
+        border-radius: 5px;
+        background-color: rgb(239, 239, 239);
+        height: 60px;
+        width: 210px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0px 10px;
+        column-gap: 5px;
+    }
+    .table_booking_details>img{
+        /* border: #ff5600 2px solid; */
+        height: 30px;
+        width: 30px;
+    }
+    #book_btn{
+        background-color: #ff5600;
+        color: white;
+        font-size: larger;
+        justify-content: center;
+    }
+    
+    </style>
+</head>
+<body>
+    <div id="home_div">
+        <img src="https://preview.colorlib.com/theme/allfood/assets/img/hero/h1_hero.png" alt="">
+    <header>
+        <img id="logo" src="https://preview.colorlib.com/theme/allfood/assets/img/logo/logo2_footer.png" alt="">
+        <span>
+            <a href="">Home</a>
+            <a href="">Menu</a>
+            <a href="">Blog</a>
+            <a href="">Contact</a>
+            <a href="">About</a>
+        </span>
+        <div>
+            <!-- <p style="font-size: larger;">Order Online</p> -->
+            <a href="">Order Online</a>
+        </div>
+    </header>
+    
+    </div>
+    <div id="chef">
+    <div id="chef_details">
+        <p id="moto">Discover Your Test</p>
+        <h3>We Provide Good Food For Your Family!</h3>
+        <p class="description">Ut enim acgsd minim veniam, quxcis nostrud exercitation ullamco laboris nisi ufsit aliquip ex ea commodo consequat is aute irure m, quis nostrud exer.</p>
+        
+        <div class="chef_qualities">
+            <img class="chef_icon" src="./pexels-jerseypics-639086.jpg" alt="">
+            <p>Ut enim ad minim veniam, quis nostrud exer.</p>
+        </div>
+
+        <div class="chef_qualities">
+            <img class="chef_icon" src="./pexels-jerseypics-639086.jpg" alt="">
+            <p>Ut enim ad minim veniam, quis nostrud exer.</p>
+        </div>
+
+        <div class="chef_qualities">
+            <img class="chef_icon" src="./pexels-jerseypics-639086.jpg" alt="">
+            <p>Ut enim ad minim veniam, quis nostrud exer.</p>
+        </div>
+
+        <div class="chef_qualities">
+            <img class="chef_icon" src="./pexels-jerseypics-639086.jpg" alt="">
+            <p>Ut enim ad minim veniam, quis nostrud exer.</p>
+        </div>
+    </div>
+            <img src="https://preview.colorlib.com/theme/allfood/assets/img/gallery/about.png" alt="">
+    </div>
+
+    <div id="div_menu">
+        <p style="color: #ff5600; font-size: large; margin-bottom: 00px;">Our Offered Menu</p>
+        <h3 style="width: 600px;">Some Trendy And Popular Courses Offerd</h3>
+
+        <div id="menu_buttons">
+            <div id="special" class="menu_button">Special</div>
+            <div id="lunch" class="menu_button">Lunch</div>
+            <div id="brakefirst" class="menu_button">Brakefirst</div>
+            <div id="dinner" class="menu_button">Dinner</div>
+        </div>
+    </div>
+    <div id="dishes">
+        <img id="dish1" class="dish" src="https://preview.colorlib.com/theme/allfood/assets/img/gallery/gallery1.png" alt="">
+        <img id="dish2" class="dish" src="https://preview.colorlib.com/theme/allfood/assets/img/gallery/gallery2.png" alt="">
+        <img id="dish3" class="dish" src="https://preview.colorlib.com/theme/allfood/assets/img/gallery/gallery3.png" alt="">
+        <img id="dish4" class="dish" src="https://preview.colorlib.com/theme/allfood/assets/img/gallery/gallery4.png" alt="">
+    </div>
+
+
+
+    <div id="restaurant">
+         <img src="https://preview.colorlib.com/theme/allfood/assets/img/gallery/about2.png" alt="">
+    <div id="restaurant_details">
+        <p id="moto">Discover Your Test</p>
+        <h3>We Provide Good Food For Your Family!</h3>
+        <p class="description">Ut enim acgsd minim veniam, quxcis nostrud exercitation ullamco laboris nisi ufsit aliquip ex ea commodo consequat is aute irure m, quis nostrud exer</p>
+        <br>
+        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected our, or randomised words which don't look even slightly believab If you are going to use a passage.</p>
+
+        <button class="btns">Learn More</button>
+    </div>
+    </div>
+    <div id="table_booking">
+        <p>About Our Restaurant</p>
+        <h3>Book A Table</h3>
+        <div>
+            <section class="table_booking_details"> <img src="https://www.svgrepo.com/show/483839/person-border.svg" alt=""> Person</section>
+            <section class="table_booking_details"> <img src="https://www.svgrepo.com/show/502605/date-range.svg" alt=""> Data</section>
+
+            <section id="book_time" class="table_booking_details">
+                <img src="https://www.svgrepo.com/show/389463/timer.svg" alt=""> Time
+            </section>
+
+            <section id="book_btn" class="table_booking_details">Book Now</section>
+        </div>
+    </div>
+    <!-- <script src="Restaurant.js"></script> -->
+</body>
+</html>
